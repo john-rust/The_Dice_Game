@@ -5,6 +5,29 @@ import sys
 import random
 
 
+
+# Rolling function
+gameSetDice = 4 # Define gameSetDice outside of rollfunct() so that it doesn't reset to 4 every time its called
+def rollfunct():
+    global gameSetDice # Using global to allow rollfunct() to change the variable
+    slow_type("\nNow rolling the d{}...\n".format(gameSetDice))
+    time.sleep(1.25)
+    diceRoll = randint(1,gameSetDice)
+    slow_type("You rolled {}\n".format(diceRoll))
+    time.sleep(1)
+    if diceRoll != gameSetDice:
+        slow_type("YOU HAVE FAILED THE DICE GAME!\n")
+        dialogOpt()
+        sepBar()
+        gameSetDice = 4
+    else:
+        slow_type("Congratulations! You've made it to the next dice!\n")
+        sepBar()
+        if gameSetDice == 12:
+            gameSetDice = 20
+        else:
+            gameSetDice = gameSetDice + 2
+
 # Typing function
 def slow_type(t):
     # Defines typing_speed by amount of letters in text
@@ -57,8 +80,7 @@ def sepBar():
     time.sleep(.5)
 
 # Variable dialog options for responses
-dialogOptN = 0
-def dialogOpt(dialogOptN):
+def dialogOpt():
     dialogOptN = randint(1,4)
     if dialogOptN == 1:
         slow_type("Better Luck Next Time!\n")
