@@ -7,9 +7,11 @@ import random
 
 
 # Rolling function
+dialogPassOption = 0
 gameSetDice = 4 # Define gameSetDice outside of rollfunct() so that it doesn't reset to 4 every time its called
 def rollfunct():
     global gameSetDice # Using global to allow rollfunct() to change the variable
+    global dialogPassOption
     slow_type("\nNow rolling the d{}...\n".format(gameSetDice))
     time.sleep(1.25)
     diceRoll = randint(1,gameSetDice)
@@ -17,16 +19,29 @@ def rollfunct():
     time.sleep(1)
     if diceRoll != gameSetDice:
         slow_type("YOU HAVE FAILED THE DICE GAME!\n")
-        dialogOpt()
+        if gameSetDice >= 8:
+            slow_type("Thats gotta hurt...")
+        else:
+            dialogOption()
         sepBar()
         gameSetDice = 4
+        dialogPassOption = dialogPassOption + 1
     else:
         slow_type("Congratulations! You've made it to the next dice!\n")
+        if dialogPassOption >= 5:
+            slow_type("Took you long enough...")
+            dialogPassOption = 0
         sepBar()
         if gameSetDice == 12:
             gameSetDice = 20
+
+        elif gameSetDice == 20:
+            slow_type("Congratulations! You have WON The Dice Game!")
+            game = 1
+
         else:
             gameSetDice = gameSetDice + 2
+
 
 # Typing function
 def slow_type(t):
@@ -80,15 +95,15 @@ def sepBar():
     time.sleep(.5)
 
 # Variable dialog options for responses
-def dialogOpt():
-    dialogOptN = randint(1,4)
-    if dialogOptN == 1:
+def dialogOption():
+    dialogNum = randint(1,4)
+    if dialogNum == 1:
         slow_type("Better Luck Next Time!\n")
-    elif dialogOptN == 2:
+    elif dialogNum == 2:
         slow_type("Were you even trying?\n")
-    elif dialogOptN == 3:
+    elif dialogNum == 3:
         slow_type("Don't worry, you'll get it this time for sure!\n")
-    elif dialogOptN == 4:
+    elif dialogNum == 4:
         slow_type("Has anyone told you they belived in you?\n")
         time.sleep(1)
         slow_type("they lied....\n")
