@@ -1,10 +1,16 @@
+import pygame, time, os, random, pygame.freetype
 from random import randint
-import os
-import time
-import sys
-import random
+from pygameTest_Functions import *
+from pygame.locals import *
+
+def startGame():
+    print("start game test complete")
 
 
+
+
+
+"""
 # Typing function
 def slow_type(t):
     # Defines typing_speed by amount of letters in text
@@ -70,3 +76,4 @@ def dialogOpt(dialogOptN):
         slow_type("Has anyone told you they belived in you?\n")
         time.sleep(1)
         slow_type("they lied....\n")
+"""
