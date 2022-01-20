@@ -6,15 +6,25 @@ import random
 from os import remove
 from sys import argv
 
-typing_speed = 40
-charNum = 0
 
+# Typing function
+#typing_speed = 200 #wpm
 def slow_type(t):
+    #Determins the speed by ammount of letters in text
+    if len(t) > 12:
+        typing_speed = 150
+        print("150")
+    elif len(t) > 15:
+        typing_speed = 200
+        print("200")
+    else:
+        typing_speed = 80
+        print("80")
+
     for l in t:
+
         sys.stdout.write(l)
         sys.stdout.flush()
-        charNum += 1
-        typing_speed = charNum * 5 + typing_speed
         time.sleep(random.random()*10.0/typing_speed)
     print('')
 
@@ -44,8 +54,9 @@ def sepBar():
     print("__________________________________________________________________________________________________________________")
     print("__________________________________________________________________________________________________________________\n")
 
-
+dialogOptN = 0
 def dialogOpt(dialogOptN):
+    dialogOptN = randint(1,4)
     if dialogOptN == 1:
         slow_type("Better Luck Next Time!\n")
     elif dialogOptN == 2:
@@ -54,4 +65,5 @@ def dialogOpt(dialogOptN):
         slow_type("Don't worry, you'll get it this time for sure!\n")
     elif dialogOptN == 4:
         slow_type("Has anyone told you they belived in you?\n")
+        time.sleep(1)
         slow_type("they lied....\n")
