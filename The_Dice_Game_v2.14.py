@@ -4,8 +4,6 @@ import os
 import time
 import sys
 import random
-from os import remove
-from sys import argv
 from dialogOptFun import *
 
 typing_speed = 200 #wpm

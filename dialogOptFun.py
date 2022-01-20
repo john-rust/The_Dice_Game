@@ -3,32 +3,32 @@ import os
 import time
 import sys
 import random
-from os import remove
-from sys import argv
 
 
 # Typing function
-#typing_speed = 200 #wpm
 def slow_type(t):
-    #Determins the speed by ammount of letters in text
-    if len(t) > 12:
+    # Defines typing_speed by amount of letters in text
+    if 20 < len(t) < 30:
         typing_speed = 150
-        print("150")
-    elif len(t) > 15:
+    elif len(t) > 30:
         typing_speed = 200
-        print("200")
     else:
         typing_speed = 80
-        print("80")
 
+    # debug print
+    #print("**\nDEBUG:")
+    #print("len of slow_type string = {}".format(len(t)))
+    #print("typing_speed = {}".format(typing_speed))
+    #print("**\n")
+
+    # Writes out each letter at the speed definined by typing_speed
     for l in t:
-
         sys.stdout.write(l)
         sys.stdout.flush()
         time.sleep(random.random()*10.0/typing_speed)
     print('')
 
-
+# Prints ruleset if called
 def ruleSet():
     print("Do you know the rules of The Dice Game? (y/n)\n")
     if input().lower() == 'n':
@@ -48,12 +48,12 @@ def ruleSet():
     else:
         slow_type ("\nWelcome Back!\n")
 
-
+# Prints seperation bar
 def sepBar():
-    #Prints Seperations Between Rolls
     print("__________________________________________________________________________________________________________________")
     print("__________________________________________________________________________________________________________________\n")
 
+# Variable dialog options for responses
 dialogOptN = 0
 def dialogOpt(dialogOptN):
     dialogOptN = randint(1,4)
