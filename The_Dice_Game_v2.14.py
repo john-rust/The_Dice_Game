@@ -32,8 +32,11 @@ while game == 0:
         else:
             slow_type("Congratulations! You've made it to the next dice!\n")
             sepBar()
-            gameSetDice = gameSetDice + 2
+            if gameSetDice == 12:
+                gameSetDice = 20
+            else:
+                gameSetDice = gameSetDice + 2
     elif input().lower() == 'q':
         game = 1
     else:
-        slow_type("Invalid input try again!\n")
+        slow_type("\nInvalid input try again!\n")
