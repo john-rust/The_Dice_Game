@@ -18,7 +18,8 @@ gameSet = 0
 # The game
 while game == 0:
     slow_type("Press r to roll!\n")
-    if input().lower() == 'r':
+    inputLetter = input().lower()
+    if inputLetter == 'r':
         slow_type("\nNow rolling the d{}...\n".format(gameSetDice))
         time.sleep(1.25)
         diceRoll = randint(1,gameSetDice)
@@ -36,7 +37,7 @@ while game == 0:
                 gameSetDice = 20
             else:
                 gameSetDice = gameSetDice + 2
-    elif input().lower() == 'q':
+    elif inputLetter == 'q':
         game = 1
     else:
         slow_type("\nInvalid input try again!\n")

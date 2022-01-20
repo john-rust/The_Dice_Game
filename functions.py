@@ -43,7 +43,7 @@ def ruleSet():
         time.sleep(1)
         slow_type("If youre on anything other than the d4 you automaticaly go back to said d4.\n")
         time.sleep(1)
-        slow_type("Press q to quit at any time, and dont forget to press enter after each input.\n")
+        slow_type("Press q instead of r to roll to quit at any time.\n")
         sepBar()
     else:
         slow_type ("\nWelcome Back!\n")
