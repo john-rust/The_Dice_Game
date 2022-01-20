@@ -44,14 +44,17 @@ def ruleSet():
         slow_type("If youre on anything other than the d4 you automaticaly go back to said d4.\n")
         time.sleep(1)
         slow_type("Press q to quit at any time, and dont forget to press enter after each input.\n")
-        time.sleep(.75)
+        sepBar()
     else:
         slow_type ("\nWelcome Back!\n")
+        sepBar()
 
 # Prints seperation bar
 def sepBar():
+    time.sleep(.5)
     print("__________________________________________________________________________________________________________________")
     print("__________________________________________________________________________________________________________________\n")
+    time.sleep(.5)
 
 # Variable dialog options for responses
 dialogOptN = 0
