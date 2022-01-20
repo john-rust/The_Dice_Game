@@ -1,6 +1,6 @@
 import pygame, time, os, random, pygame.freetype
 from random import randint
-from Functions import *
+from pygameTest_Functions import *
 from pygame.locals import *
 
 
@@ -12,15 +12,14 @@ running = True
 
 while running:
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+           if event.type == KEYDOWN:
+               if event.key == K_ESCAPE:
+                   pygame.quit()
 
     screen.fill((255,255,255))
-    # You can use `render` and then blit the text surface ...
-    text_surface, rect = GAME_FONT.render("Hello World!", (0, 0, 0))
-    screen.blit(text_surface, (40, 250))
-    # or just `render_to` the target surface.
-    GAME_FONT.render_to(screen, (40, 350), "Hello World!", (0, 0, 0))
+
+    GAME_FONT.render_to(screen, (100, 180), "Welcome to The Dice Game", (0,0,0))
+    GAME_FONT.render_to(screen, (140, 240), "Press Enter to Start", (0,0,0))
 
     pygame.display.flip()
 
