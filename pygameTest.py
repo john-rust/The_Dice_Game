@@ -18,6 +18,8 @@ while running:
             elif event.key == K_RETURN:
                 startGame()
 
+        if event.type == QUIT:
+            running = False
 
     screen.fill((255,255,255))
 
