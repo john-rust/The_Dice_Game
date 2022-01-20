@@ -4,7 +4,7 @@ import os
 import time
 import sys
 import random
-from dialogOptFun import *
+from functions import *
 
 # Explains rules for first timers
 ruleSet()
@@ -34,7 +34,6 @@ while game == 0:
             sepBar()
             gameSetDice = gameSetDice + 2
     elif input().lower() == 'q':
-        time.sleep(1)
         game = 1
-    else :
+    else:
         slow_type("Invalid input try again!\n")
